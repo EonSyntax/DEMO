@@ -1,0 +1,57 @@
+# Let's generate an HTML document with about 800 lines of code.
+# The document will include standard HTML sections, repeated content, and structured layout to meet the line requirement.
+
+html_template = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sample 800-Line HTML Document</title>
+  <style>
+    body {{ font-family: Arial, sans-serif; margin: 0; padding: 0; }}
+    header, footer {{ background-color: #333; color: white; text-align: center; padding: 1em 0; }}
+    main {{ padding: 1em; }}
+    .section {{ margin-bottom: 2em; }}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to the 800-Line HTML Page</h1>  </header>
+  <main>
+"""
+
+# Add repeating sections to reach about 800 lines
+# Each section is about 6 lines, so 120 sections will get us to ~800 lines
+section_template = """
+    <div class="section">
+      <h2>Section {num}</h2>
+      <p>This is some sample content for section {num}.</p>
+      <ul>
+        <li>Item A in section {num}</li>
+        <li>Item B in section {num}</li>
+        <li>Item C in section {num}</li>
+      </ul>
+    </div>
+"""
+
+# Generate sections
+for i in range(1, 121):
+    html_template += section_template.format(num=i)
+
+# Close main and body
+html_template += """
+  </main>
+  <footer>
+    <p>&copy; 2025 Example Footer Content</p>
+  </footer>
+</body>
+</html>
+"""
+
+# Save the HTML to a file
+file_path = "/mnt/data/sample_800_lines.html"
+with open(file_path, "w") as f:
+    f.write(html_template)
+
+file_path
+
